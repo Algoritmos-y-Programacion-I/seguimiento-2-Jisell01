@@ -2,10 +2,16 @@ package model;
 
 public class BancoIcesiController {
 
-     /*
-     * ATENCION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     * Agregue los atributos (relaciones) necesarios para satisfacer los requerimientos.
-     */
+    private Pokemon[] pokemons;
+
+    public Controller(int size) {
+        pokemons = new Pokemon[size];
+    }
+
+    public Pokemon[] getPokemons() {
+        return pokemons;
+    }
+
 
     public BancoIcesiController(){
 
@@ -39,4 +45,32 @@ public class BancoIcesiController {
 
    
 
+}
+
+package model;
+
+public class Controller {
+
+    private Pokemon[] pokemons;
+
+    public Controller(int size) {
+        pokemons = new Pokemon[size];
+    }
+
+    public Pokemon[] getPokemons() {
+        return pokemons;
+    }
+
+    public void setPokemons(Pokemon[] pokemons) {
+        this.pokemons = pokemons;
+    }
+    
+    public void addPokemon(String nombre, TipoPokemon tipo, int nivel, int ataque, int salud) {
+        for(int i = 0; i < pokemons.length; i++) {
+            if(pokemons[i] == null) {
+                pokemons[i] = new Pokemon(nombre, tipo, nivel, ataque, salud);
+                break;
+            }
+        }
+    }
 }
